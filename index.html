@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Museum | Curated Art Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1><i class="fas fa-museum"></i> Virtual Art Museum</h1>
+            <p class="subtitle">Explore a curated collection of high-quality paintings from the Art Institute of Chicago. Click on any artwork to view it in high resolution.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="controls">
+            <button class="btn btn-primary" id="loadArtworks">
+                <i class="fas fa-sync-alt"></i> Load New Artworks
+            </button>
+            <button class="btn" id="randomArtwork">
+                <i class="fas fa-random"></i> Random Artwork
+            </button>
+            <button class="btn" id="toggleView">
+                <i class="fas fa-th-large"></i> Toggle View
+            </button>
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchInput" placeholder="Search artworks by title, artist, or medium...">
+            <button class="search-btn" id="searchBtn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="filters">
+            <select class="filter-select" id="sortSelect">
+                <option value="">Sort By</option>
+                <option value="title">Title A-Z</option>
+                <option value="artist">Artist A-Z</option>
+                <option value="date">Date (Oldest First)</option>
+                <option value="date-desc">Date (Newest First)</option>
+            </select>
+            <select class="filter-select" id="filterSelect">
+                <option value="">Filter By Medium</option>
+                <option value="Oil">Oil on Canvas</option>
+                <option value="Watercolor">Watercolor</option>
+                <option value="Print">Print</option>
+                <option value="Drawing">Drawing</option>
+                <option value="Photograph">Photograph</option>
+            </select>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading artworks from the Art Institute of Chicago...</p>
+        </div>
+
+        <div id="artworksContainer" class="artworks-grid"></div>
+
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <i class="fas fa-palette"></i>
+            <h3>No Artworks Found</h3>
+            <p>Try adjusting your search or filters to see more results.</p>
+            <button class="btn btn-primary" id="resetSearch" style="margin-top: 20px;">
+                <i class="fas fa-redo"></i> Reset Search
+            </button>
+        </div>
+
+        <div class="pagination" id="pagination" style="display: none;">
+            <button class="page-btn" id="prevPage"><i class="fas fa-chevron-left"></i></button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button class="page-btn" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <div class="zoom-modal" id="zoomModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Artwork Title</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-img-container">
+                    <img class="modal-img" id="modalImg" src="" alt="Artwork">
+                </div>
+                <div class="modal-details">
+                    <div class="detail-item">
+                        <h4><i class="fas fa-user"></i> Artist</h4>
+                        <p id="modalArtist">Unknown Artist</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4><i class="fas fa-calendar-alt"></i> Date</h4>
+                        <p id="modalDate">Unknown Date</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4><i class="fas fa-paint-brush"></i> Medium</h4>
+                        <p id="modalMedium">Unknown Medium</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4><i class="fas fa-ruler"></i> Dimensions</h4>
+                        <p id="modalDimensions">Unknown Dimensions</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4><i class="fas fa-info-circle"></i> Description</h4>
+                        <p id="modalDescription">No description available for this artwork.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4><i class="fas fa-building"></i> Department</h4>
+                        <p id="modalDepartment">Unknown Department</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Artworks provided by the <a href="https://www.artic.edu/" target="_blank">Art Institute of Chicago API</a></p>
+        <p>Virtual Museum &copy; 2023 | Made with <i class="fas fa-heart" style="color: var(--accent);"></i> for art lovers</p>
+    </footer>
+
+    <script src="main.js">
+        // Global variables
+        
+    </script>
+</body>
+</html>
